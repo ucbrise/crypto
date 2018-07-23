@@ -40,6 +40,15 @@ type IdentityPrivateKey struct {
 	q *bn256.G2
 }
 
+func (priv *MasterPrivateKey) MarshalBinary() ([]byte, error) {
+	return priv.s.Bytes(), nil
+}
+func (priv *MasterPrivateKey) UnmarshalBinary(data []byte) error {
+	priv.s = new(big.Int)
+	priv.s.SetBytes(data)
+	return nil
+}
+
 func Setup(random io.Reader) (*MasterPublicKey, *MasterPrivateKey) {
 	secret, err := rand.Int(random, bn256.Order)
 	if err != nil {
