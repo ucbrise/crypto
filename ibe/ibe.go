@@ -9,7 +9,7 @@
 // http://cseweb.ucsd.edu/~mihir/cse208-06/libert-quisquater-ibe-acns-05.pdf.
 // This schemes transforms the BF-IBE scheme (BasicIndent) into an
 // IND-ID-CCA2 secure scheme.
-package ibe // import "vuvuzela.io/crypto/ibe"
+package ibe
 
 import (
 	"crypto/rand"
